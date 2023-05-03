@@ -1,52 +1,56 @@
 # Traveling Salesman Problem Solver
+This application uses a genetic algorithm to solve the Traveling Salesman Problem (TSP). The Traveling Salesman Problem is an optimization problem where the goal is to find the shortest route that visits a set of cities and returns to the starting city.
+## Features
+* Command-line interface for user input
+* Customizable parameters for the genetic algorithm
+* Input validation and error handling
+* Example input for quick testing
+* Multi-threaded processing for improved performance
+* Modular design for easy code maintenance
 
-This Python script solves the Traveling Salesman Problem (TSP) using a Genetic Algorithm. Given a set of cities and the distances between each pair of cities, the script finds the shortest possible route that visits each city exactly once and returns to the starting city.
+## Input Validation
+The application validates user input in various ways:
 
-## Requirements
+* Number of cities must be greater than or equal to 2 also handles duplicate cities and the edge case where you enter 2 cities only and they are duplicate.
+* Population size must be positive.
+* Elite size must be greater than 0 and less than the population size.
+* Mutation rate must be between 0 and 1 (inclusive).
+* Number of generations must be positive.
+* Convergence limit must be positive.
+* City coordinates must be valid float values.
 
-- Python 3.6 or higher
+If the user provides invalid input, an appropriate error message is displayed, and the user is prompted to enter the correct value.
 
-## How to use
+## Inputs
+The application prompts the user for the following inputs:
+1. Whether to use the example input or provide custom input.
+2. If custom input is chosen:
+* The number of cities to visit.
+* Coordinates for each city (one per line) in the format `x`, `y`.
+* The size of the population.
+* The elite size (number of top solutions to keep from one generation to the next).
+* The mutation rate (probability of swapping cities in a route).
+* The number of generations to run the algorithm for.
+* The convergence limit (number of generations without improvement before the algorithm stops).
+## Outputs
+Once the genetic algorithm finishes running, the application displays:
+* The best route found.
+* The total distance of the best route.
 
-1. Clone or download the repository containing the `tsp.py` script.
-2. Open a terminal or command prompt.
-3. Navigate to the directory containing the `tsp.py` script.
-4. Run the following command:
+## How the Application Works
+
+1. The user provides input for cities and algorithm parameters.
+2. The algorithm generates an initial population of routes.
+3. The algorithm iterates through the specified number of generations, performing the following steps:
+* Selects the fittest routes based on their fitness scores.
+* Performs crossover (combines routes to create new routes) and mutation (randomly swaps cities within a route) to create a new population.
+* Checks for convergence (no improvement in the best route after a certain number of generations).
+
+4. The application displays the best route and its total distance.
+
+To run the application, simply execute the main.py script.
 
 ```bash
-python tsp.py
+python main.py
 ```
-5. Follow the prompts to either use the example input or enter your own custom input.
-
-## Example and example Input usage 
-
-To run the script with the example data, execute the following command:
-
-```bash
-python tsp.py
-```
-When prompted, choose to use the example input by entering `y`. The script will then run the genetic algorithm and output the best route found along with its total distance.
-
-If you choose to use the example input, the script will use the following data:
-
-```python
-cities = [City(x=60, y=200), City(x=180, y=200),
-City(x=80, y=180), City(x=140, y=180), City(x=20, y=160),
-City(x=100, y=160), City(x=200, y=160)]
-best_route = genetic_algorithm(cities, population_size=100,
-elite_size=20, mutation_rate=0.01, generations=500)
-```
-## Custom Input
-If you choose to enter custom input, you will be prompted to provide the following information:
-
-* The number of cities.
-* The coordinates of each city (one city per line, formatted as x, y).
-* The population size for the genetic algorithm.
-* The elite size (number of top-performing individuals to keep in each generation).
-* The mutation rate (e.g., 0.01 for 1% chance of mutation).
-* The number of generations for the genetic algorithm to run.
-
-## Output
-
-The script will output the best route found and its total distance.
-
+Follow the prompts to provide input for cities and algorithm parameters. Once the algorithm completes, the best route and its total distance will be displayed.
