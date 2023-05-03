@@ -67,11 +67,8 @@ def prompt_cities(num_cities: int) -> List[City]:
                     break
                 except (ValueError, IndexError):
                     print("Invalid input. Please enter city coordinates as x, y:")
-
-        print(f"Cities before removing duplicates: {cities}")
+                    
         cities = remove_duplicate_cities(cities)
-        print(f"Cities after removing duplicates: {cities}")
-        
         if len(cities) < 2:
             print("Duplicate cities have been removed.")
             print("Please enter at least 2 unique cities.")

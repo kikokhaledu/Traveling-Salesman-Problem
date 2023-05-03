@@ -1,5 +1,10 @@
 # Traveling Salesman Problem Solver
 This application uses a genetic algorithm to solve the Traveling Salesman Problem (TSP). The Traveling Salesman Problem is an optimization problem where the goal is to find the shortest route that visits a set of cities and returns to the starting city.
+
+## requirements
+
+python 3.10.X
+
 ## Features
 * Command-line interface for user input
 * Customizable parameters for the genetic algorithm

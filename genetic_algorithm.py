@@ -14,7 +14,6 @@ def generate_initial_population(size: int, cities: List[City]) -> List[Route]:
     """
     population = []
     for _ in range(size):
-        print("cities object passed to generate_initial_population for debugging :",cities)
         random.shuffle(cities)
         population.append(Route(cities[:]))
     return population
